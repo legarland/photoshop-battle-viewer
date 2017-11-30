@@ -1,0 +1,93 @@
+h1 {
+  text-align: center;
+  font-style: italic;
+  color: #666666;
+  margin-bottom: 0; }
+
+.battle-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #587184; }
+  .battle-item .battle-image {
+    text-align: center; }
+    .battle-item .battle-image img {
+      max-height: 350px;
+      border: solid 10px #fff; }
+  .battle-item .battle-title {
+    color: #fff;
+    text-transform: uppercase;
+    padding-left: 15px;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 10px; }
+
+.battle-winners {
+  display: grid;
+  padding: 20px 20%;
+  grid-template-columns: 1fr 1fr 1fr; }
+  .battle-winners .battle-place {
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+    margin-bottom: 3px; }
+  .battle-winners .battle-second, .battle-winners .battle-first, .battle-winners .battle-third {
+    display: flex;
+    flex-direction: column; }
+    .battle-winners .battle-second .podium img, .battle-winners .battle-first .podium img, .battle-winners .battle-third .podium img {
+      max-height: 100px; }
+  .battle-winners .battle-first .podium {
+    background-color: #D9A441; }
+  .battle-winners .battle-second {
+    margin-top: 80px; }
+    .battle-winners .battle-second .battle-place {
+      font-size: 28px; }
+    .battle-winners .battle-second .podium {
+      background-color: #A8A8A8; }
+  .battle-winners .battle-third {
+    margin-top: 120px; }
+    .battle-winners .battle-third .podium {
+      background-color: #965A38; }
+    .battle-winners .battle-third .battle-place {
+      font-size: 24px; }
+  .battle-winners .battle-submission {
+    margin: 0 10px; }
+    .battle-winners .battle-submission .submission-image {
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .battle-winners .battle-submission .submission-image img {
+        max-height: 200px;
+        width: auto; }
+  .battle-winners .podium {
+    color: #fff;
+    padding: 0 0 30px 0;
+    font-weight: bold;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #587184 !important;
+    flex: 1;
+    margin-top: 10px;
+    border-right: solid 1px #fcfcfc; }
+  .battle-winners .battle-third {
+    border-right: none; }
+
+.item-grid {
+  display: grid;
+  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-flow: dense;
+  grid-gap: 20px;
+  grid-auto-rows: 20px; }
+  @media (max-width: 600px) {
+    .item-grid {
+      grid-row-gap: 20px; } }
+  .item-grid .battle-submission {
+    grid-column-end: span 1; }
+
+/*# sourceMappingURL=Battle.css.map */
