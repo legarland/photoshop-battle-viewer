@@ -1,0 +1,26 @@
+.battle-submission-img {
+  cursor: pointer;
+}
+
+.big-image-container {
+
+  background-color: rgba(0,0,0,.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .big-image {
+    position: fixed;
+    max-width: 50%;
+    max-height: 80%;
+    margin: auto;
+    border: solid 10px #fff;
+    box-shadow: 1px 1px 20px #111;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

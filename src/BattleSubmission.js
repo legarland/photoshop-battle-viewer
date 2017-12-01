@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import HoverImage from './HoverImage';
 import 'whatwg-fetch';
 import './BattleSubmission.css';
 
@@ -20,13 +21,7 @@ class BattleSubmission extends Component {
 			url = this.state.url.replace(".gifv", ".gif").replace(".webm", ".gif");
 		}
 
-		let media = (<a href={this.state.url} target="_blank"><img
-			className={"battle-submission-img " + this.state.status}
-			src={url}
-			onLoad={this.imgLoaded.bind(this)}
-			onError={this.imgFailed.bind(this)}
-		/>
-		</a>);
+		let media = (<HoverImage url={url} loaded={this.imgLoaded.bind(this)} failed={this.imgFailed.bind(this)} status={this.state.status} />);
 
 		let failedToLoad = (
 			<a href={this.state.url} target="_blank" className="failed">
@@ -71,6 +66,7 @@ class BattleSubmission extends Component {
 	}
 
 	imgLoaded() {
+
 		this.setState({
 			status: "loaded"
 		});
