@@ -92,6 +92,22 @@ class Battle extends Component {
 		}
 	}
 
+	componentWillMount() {
+
+		let url = 'https://www.reddit.com/r/photoshopbattles/comments/' + this.props.match.params.id + '.json?sort=top';
+		fetch(url)
+		.then(response => response.json())
+		.then(json => {
+
+			this.setState({
+				battleItem: json[0].data.children[0].data,
+				battleEntries: json[1].data.children.filter(item => item.kind === "t1" && item.data.author !== "[deleted]")
+			}, () => {
+
+			});
+		});
+	}
+
 	componentWillReceiveProps(nextProps) {
 
 		if (nextProps.match.params.id !== this.props.match.params.id) {
@@ -101,15 +117,12 @@ class Battle extends Component {
 			});
 		}
 
-		if (this.state.battleEntries.length == [] || nextProps.match.params.id !== this.props.match.params.id) {
+		if (this.state.battleEntries.length === 0 || nextProps.match.params.id !== this.props.match.params.id) {
 
 			let url = 'https://www.reddit.com/r/photoshopbattles/comments/' + nextProps.match.params.id + '.json?sort=top';
-			console.log(url);
 			fetch(url)
 			.then(response => response.json())
 			.then(json => {
-
-				console.log("data received");
 
 				this.setState({
 					battleItem: json[0].data.children[0].data,

@@ -3,6 +3,7 @@ import * as queryString from 'query-string';
 import {
 	BrowserRouter as Router,
 	Route,
+	HashRouter,
 	Link
 } from 'react-router-dom';
 import logo from './logo.svg';
@@ -49,14 +50,14 @@ class App extends Component {
   render() {
 
 	    return (
-	    	<Router>
+	    	<HashRouter>
 	        <div className="App">
 						<BattleList items={this.state.items} clicked={this.clicker}/>
 		        <div className="battle-container">
-	            <Route path={process.env.PUBLIC_URL + "/:id"} component={Battle} />
+	            <Route path={"/:id"} component={Battle} />
 		        </div>
 	        </div>
-		    </Router>
+		    </HashRouter>
 	    );
   }
 
