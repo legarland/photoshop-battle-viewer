@@ -11,7 +11,13 @@ a {
   font-weight: bold;
 }
 
+.App {
+  display: flex;
+}
+
 .battle-container {
   background-color: #dfdfdf;
+  margin-left: 200px;
+  flex: 1;
 }
 

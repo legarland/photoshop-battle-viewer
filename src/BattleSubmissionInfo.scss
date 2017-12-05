@@ -1,0 +1,28 @@
+.battle-submission-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  width: 100%;
+  background-color: #587184;
+  padding: 5px 0;
+
+  span {
+    text-align: center;
+    font-weight: normal;
+
+    display: flex;
+    align-items: center;
+
+    img {
+      max-height: 14px;
+      margin-right: 2px;
+    }
+
+    &.submissions {
+      img {
+        margin-bottom: -2px;
+      }
+    }
+  }
+}

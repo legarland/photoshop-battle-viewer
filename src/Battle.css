@@ -4,6 +4,9 @@ h1 {
   color: #666666;
   margin-bottom: 0; }
 
+.battle {
+  flex: 1; }
+
 .battle-item {
   display: flex;
   justify-content: center;
@@ -89,5 +92,12 @@ h1 {
       grid-row-gap: 20px; } }
   .item-grid .battle-submission {
     grid-column-end: span 1; }
+
+.full-screen-loading {
+  display: flex;
+  flex: 1;
+  height: 100vh;
+  align-items: center;
+  justify-content: center; }
 
 /*# sourceMappingURL=Battle.css.map */

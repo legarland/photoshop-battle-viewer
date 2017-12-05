@@ -8,7 +8,12 @@ a {
   color: #1a1920;
   font-weight: bold; }
 
+.App {
+  display: flex; }
+
 .battle-container {
-  background-color: #dfdfdf; }
+  background-color: #dfdfdf;
+  margin-left: 200px;
+  flex: 1; }
 
 /*# sourceMappingURL=App.css.map */

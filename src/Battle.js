@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BattleSubmission from "./BattleSubmission";
+import ReactLoading from 'react-loading';
 import './Battle.css';
 import 'whatwg-fetch';
 import gold from './gold.png';
@@ -10,7 +11,10 @@ import * as imagesLoaded from 'imagesloaded';
 class Battle extends Component {
 
 	constructor (props) {
-		super(props)
+		super(props);
+
+		this.resizeAllGridItems = this.resizeAllGridItems.bind(this);
+
 		this.state = {
 			battleEntries: [],
 			battleItem: {}
@@ -20,13 +24,13 @@ class Battle extends Component {
 	render() {
 
 		const battleEntries = this.state.battleEntries.map(entry =>
-			<BattleSubmission comment={entry.data} loaded={this.resizeAllGridItems.bind(this)} />
+			<BattleSubmission comment={entry.data} loaded={this.resizeAllGridItems} />
 		);
 
 
-		if (this.state.battleEntries.length) {
+		if (this.state.battleEntries && this.state.battleEntries.length) {
 			return (
-				<div>
+				<div className="battle">
 					<div className="battle-item">
 						<div className="battle-title">{this.state.battleItem.title}</div>
 						<div className="battle-image"><img src={this.state.battleItem.url} alt=""/></div>
@@ -35,21 +39,21 @@ class Battle extends Component {
 					<div className="battle-winners">
 						<div className="battle-second">
 							{/*<div className="battle-place">2nd</div>*/}
-							<BattleSubmission comment={this.state.battleEntries[1].data}/>
+							{ this.state.battleEntries[1] ? (<BattleSubmission comment={this.state.battleEntries[1].data}/>) : (<div/>)}
 							<div className="podium">
 								<img src={silver} alt=""/>
 							</div>
 						</div>
 						<div className="battle-first">
 							{/*<div className="battle-place">1st</div>*/}
-							<BattleSubmission comment={this.state.battleEntries[0].data}/>
+							{ this.state.battleEntries[0] ? (<BattleSubmission comment={this.state.battleEntries[0].data}/>) : (<div/>)}
 							<div className="podium">
 								<img src={gold} alt=""/>
 							</div>
 						</div>
 						<div className="battle-third">
 							{/*<div className="battle-place">3rd</div>*/}
-							<BattleSubmission comment={this.state.battleEntries[2].data}/>
+							{ this.state.battleEntries[2] ? (<BattleSubmission comment={this.state.battleEntries[2].data}/>) : (<div/>)}
 							<div className="podium">
 								<img src={bronze} alt=""/>
 							</div>
@@ -61,7 +65,7 @@ class Battle extends Component {
 			);
 		}
 		else {
-			return (<div/>);
+			return (<div className="full-screen-loading"><ReactLoading type="bars" color="#333333" /></div>);
 		}
 	}
 
@@ -78,55 +82,52 @@ class Battle extends Component {
 	}
 
 	resizeAllGridItems () {
+
+		console.log("resizing");
+
 		let grid = document.getElementsByClassName("item-grid")[0];
 		let allItems = grid.getElementsByClassName("battle-submission");
 		for (let x = 0; x < allItems.length; x++) {
-			this.resizeGridItem(allItems[x]);
+			setTimeout(()=>{this.resizeGridItem(allItems[x]);}, 1000);
 		}
 	}
 
-	componentDidMount() {
+	componentWillReceiveProps(nextProps) {
 
-		let url = 'https://www.reddit.com/r/photoshopbattles/comments/' + this.props.id + '.json?sort=top';
-		console.log(url);
-		fetch(url)
-		.then(response => response.json() )
-		.then (json => {
+		if (nextProps.match.params.id !== this.props.match.params.id) {
 			this.setState({
-				battleItem: json[0].data.children[0].data,
-				battleEntries: json[1].data.children.filter(item => item.kind === "t1" && item.data.author !== "[deleted]")
+				battleEntries: [],
+				battleItem: {}
 			});
+		}
 
-			this.resizeAllGridItems();
+		if (this.state.battleEntries.length == [] || nextProps.match.params.id !== this.props.match.params.id) {
 
-			// let imgLoad = imagesLoaded(".battle-submission", instance => {
-			// 	console.log("images Loaded: ", instance);
-			// })
+			let url = 'https://www.reddit.com/r/photoshopbattles/comments/' + nextProps.match.params.id + '.json?sort=top';
+			console.log(url);
+			fetch(url)
+			.then(response => response.json())
+			.then(json => {
 
-			// let allItems = document.getElementsByClassName("battle-submission");
-			// for(let x=0;x<allItems.length;x++){
-			//
-			// 	let imgLoad = imagesLoaded( allItems[x], instance => {
-			// 		//console.log("image loaded");
-			// 		let item = instance.elements[0];
-			// 		//console.log(instance.images[0]);
-			// 		instance.images[0].img.classList.add('loaded');
-			//
-			// 		setTimeout(() => this.resizeGridItem(item), 1000);
-			// 	});
-			//
-			// 	imgLoad.on('done', instance => {
-			// 		console.log("always complete: ", instance.images[0]);
-			// 	})
-			//
-			// }
+				console.log("data received");
 
-		})
+				this.setState({
+					battleItem: json[0].data.children[0].data,
+					battleEntries: json[1].data.children.filter(item => item.kind === "t1" && item.data.author !== "[deleted]")
+				}, () => {
+
+				});
+			});
+		}
 
 		window.addEventListener("resize", () => {
 			console.log("resizing");
 			this.resizeAllGridItems()
 		});
+	}
+
+	componentWillUnmount() {
+		console.log("unmounting");
 	}
 }
 

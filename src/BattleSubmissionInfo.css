@@ -1,0 +1,20 @@
+.battle-submission-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  width: 100%;
+  background-color: #587184;
+  padding: 5px 0; }
+  .battle-submission-info span {
+    text-align: center;
+    font-weight: normal;
+    display: flex;
+    align-items: center; }
+    .battle-submission-info span img {
+      max-height: 14px;
+      margin-right: 2px; }
+    .battle-submission-info span.submissions img {
+      margin-bottom: -2px; }
+
+/*# sourceMappingURL=BattleSubmissionInfo.css.map */

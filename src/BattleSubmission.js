@@ -21,7 +21,11 @@ class BattleSubmission extends Component {
 			url = this.state.url.replace(".gifv", ".gif").replace(".webm", ".gif");
 		}
 
-		let media = (<HoverImage url={url} loaded={this.imgLoaded.bind(this)} failed={this.imgFailed.bind(this)} status={this.state.status} />);
+		let media = (<HoverImage
+			url={url}
+			loaded={this.imgLoaded.bind(this)}
+			failed={this.imgFailed.bind(this)}
+			status={this.state.status} />);
 
 		let failedToLoad = (
 			<a href={this.state.url} target="_blank" className="failed">
@@ -70,6 +74,7 @@ class BattleSubmission extends Component {
 		this.setState({
 			status: "loaded"
 		});
+
 		if (this.props.loaded)
 			this.props.loaded();
 	}

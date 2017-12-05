@@ -1,58 +1,67 @@
 import React, { Component } from 'react';
+import * as queryString from 'query-string';
+import {
+	BrowserRouter as Router,
+	Route,
+	Link
+} from 'react-router-dom';
 import logo from './logo.svg';
 import 'whatwg-fetch';
 import './App.css';
 import Battle from './Battle';
+import BattleList from './BattleList';
 
 class App extends Component {
 
 	constructor (props) {
+
 		super(props);
 		this.state = {
 			posts: [],
-			battleId: ""
-		}
+			battleId: "",
+			items: []
+		};
+
+		this.clicker = this.clicker.bind(this);
+
+		fetch('https://www.reddit.com/r/photoshopbattles.json')
+		.then(response => response.json())
+		.then(json => {
+			let arr = json.data.children.filter(item => !item.data.stickied);
+			console.log(arr);
+			this.setState({
+				items: arr
+			})
+		});
+	}
+
+	clicker(id) {
+
+		this.setState(
+			{
+				battleEntries: []
+			}
+		);
+
+
 	}
 
   render() {
 
-	  const postListItems = this.state.posts.map(post =>
-      <li key={post.data.id}>
-        <Battle title={post.data.title} id={post.data.id}/>
-      </li>
-	  );
-
-	  const postList = (
-	    <ul>{postListItems}</ul>
-    );
-
-    if (this.state && this.state.battleId) {
 	    return (
-        <div className="App">
-          <header>
-
-          </header>
-	        <div className="battle-container">
-            <Battle title="Test" id={this.state.battleId} />
+	    	<Router>
+	        <div className="App">
+						<BattleList items={this.state.items} clicked={this.clicker}/>
+		        <div className="battle-container">
+	            <Route path={process.env.PUBLIC_URL + "/:id"} component={Battle} />
+		        </div>
 	        </div>
-        </div>
+		    </Router>
 	    );
-    }
-    else return null;
   }
 
-  componentWillMount() {
+  componentDidUpdate() {
 
-	  fetch('https://www.reddit.com/r/photoshopbattles.json?sort=top&t=today').then(response => {
-		  return response.json()
-	  }).then(json => {
-	    console.log(json.data);
-		  this.setState(
-			  {
-				  battleId: json.data.children[2].data.id
-			  }
-		  )
-	  })
   }
 
   componentDidMount() {

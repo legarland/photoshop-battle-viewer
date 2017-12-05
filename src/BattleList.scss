@@ -1,0 +1,36 @@
+.battle-list-container {
+  box-sizing: content-box;
+  background-color: #fff;
+  width: 200px;
+  max-height: 100vh;
+  position: fixed;
+  overflow-y: scroll;
+
+  .battle-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px #000;
+  }
+
+  .battle-list-item {
+    border: solid 10px #587184;
+    border-bottom: none;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+
+    img {
+      align-self: center;
+      justify-self: center;
+      max-width: 100%;
+    }
+  }
+
+}
