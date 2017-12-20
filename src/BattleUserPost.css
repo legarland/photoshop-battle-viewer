@@ -1,0 +1,47 @@
+.battle-user-post .battle-link {
+  background-color: #eee;
+  padding: 0 0 5px 0;
+  text-align: center; }
+  .battle-user-post .battle-link a {
+    color: #000; }
+.battle-user-post .submission-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  padding: 10px; }
+  .battle-user-post .submission-image img {
+    max-width: 100%;
+    width: 100%;
+    visibility: hidden; }
+    .battle-user-post .submission-image img.loaded {
+      visibility: visible; }
+    .battle-user-post .submission-image img.loading {
+      display: none; }
+    .battle-user-post .submission-image img.failed {
+      display: none; }
+  .battle-user-post .submission-image .failed {
+    background-color: #cccccc;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-transform: uppercase;
+    width: 100%; }
+  .battle-user-post .submission-image .img-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .battle-user-post .submission-image .img-loading .loading {
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      border: .25rem solid #aaa;
+      border-top-color: #000;
+      animation: spin 1s infinite linear; }
+      .battle-user-post .submission-image .img-loading .loading--double {
+        border-style: double;
+        border-width: .5rem; }
+
+/*# sourceMappingURL=BattleUserPost.css.map */

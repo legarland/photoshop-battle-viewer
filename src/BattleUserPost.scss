@@ -1,0 +1,75 @@
+
+
+$base-line-height: 24px;
+$white: rgb(255,255,255);
+$off-white: rgba($white, 0.2);
+$spin-duration: 1s;
+$pulse-duration: 750ms;
+
+.battle-user-post {
+
+  .battle-link {
+    background-color: #eee;
+    padding: 0 0 5px 0;
+    text-align: center;
+    a {
+      color: #000 ;
+    }
+  }
+
+  .submission-image {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+    padding: 10px;
+
+    img {
+      max-width: 100%;
+      width: 100%;
+      visibility: hidden;
+
+      &.loaded {
+        visibility: visible;
+      }
+
+      &.loading {
+        display: none;
+      }
+
+      &.failed {
+        display: none;
+      }
+    }
+
+    .failed {
+      background-color: #cccccc;
+      min-height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-transform: uppercase;
+      width: 100%;
+    }
+
+    .img-loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .loading {
+        border-radius: 50%;
+        width: $base-line-height;
+        height: $base-line-height;
+        border: .25rem solid #aaa;
+        border-top-color: #000;
+        animation: spin $spin-duration infinite linear;
+        &--double {
+          border-style: double;
+          border-width: .5rem;
+        }
+      }
+    }
+  }
+}

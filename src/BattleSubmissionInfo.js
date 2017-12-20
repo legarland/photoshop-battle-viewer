@@ -32,8 +32,8 @@ class BattleSubmissionInfo extends Component {
 		)
 	}
 
-	componentWillMount () {
-		let url = 'https://www.reddit.com/r/photoshopbattles/comments/' + this.props.id + '.json?sort=top';
+	loadInfo(id) {
+		let url = 'https://www.reddit.com/r/photoshopbattles/comments/' + id + '.json?sort=top';
 		fetch(url)
 		.then(response => response.json())
 		.then(json => {
@@ -47,6 +47,14 @@ class BattleSubmissionInfo extends Component {
 
 			});
 		});
+	}
+
+	componentWillReceiveProps (nextProps) {
+		this.loadInfo(nextProps.id);
+	}
+
+	componentWillMount() {
+		this.loadInfo(this.props.id);
 	}
 }
 

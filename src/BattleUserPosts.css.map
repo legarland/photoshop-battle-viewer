@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,kBAAmB;EACjB,OAAO,EAAE,IAAI;EAEb,qBAAqB,EAAE,cAAc;EACrC,cAAc,EAAE,KAAK;EACrB,QAAQ,EAAE,IAAI;EACd,cAAc,EAAE,IAAI;EACpB,OAAO,EAAE,IAAI;EACb,gBAAgB,EAAE,OAAO",
+"sources": ["BattleUserPosts.scss"],
+"names": [],
+"file": "BattleUserPosts.css"
+}

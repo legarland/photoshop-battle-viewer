@@ -11,6 +11,7 @@ import 'whatwg-fetch';
 import './App.css';
 import Battle from './Battle';
 import BattleList from './BattleList';
+import Home from "./Home";
 
 class App extends Component {
 
@@ -22,6 +23,16 @@ class App extends Component {
 			battleId: "",
 			items: []
 		};
+
+		var config = {
+			apiKey: "AIzaSyDt8YXlYKxQa0XYVk2VImCA08uOAP_YkU4",
+			authDomain: "photoshop-battle-viewer.firebaseapp.com",
+			databaseURL: "https://photoshop-battle-viewer.firebaseio.com",
+			projectId: "photoshop-battle-viewer",
+			storageBucket: "",
+			messagingSenderId: "61973137829"
+		};
+		window.firebase.initializeApp(config);
 
 		this.clicker = this.clicker.bind(this);
 
@@ -55,6 +66,7 @@ class App extends Component {
 						<BattleList items={this.state.items} clicked={this.clicker}/>
 		        <div className="battle-container">
 	            <Route path={"/:id"} component={Battle} />
+			        <Route path={"/"} exact component={Home}></Route>
 		        </div>
 	        </div>
 		    </HashRouter>

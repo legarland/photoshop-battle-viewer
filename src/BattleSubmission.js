@@ -62,7 +62,7 @@ class BattleSubmission extends Component {
 					<div className="submission-title"
 					     dangerouslySetInnerHTML={{__html: this.decodeHtml(this.props.comment.body_html)}} />
 					<div className="submission-permalink">
-						<a href={'https://www.reddit.com' + this.props.comment.permalink}>View Comments</a>
+						<a target="_blank" href={'https://www.reddit.com' + this.props.comment.permalink}>View Comments</a>
 					</div>
 				</div>
 			</div>

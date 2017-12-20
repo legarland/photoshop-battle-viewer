@@ -4,27 +4,36 @@
   width: 200px;
   max-height: 100vh;
   position: fixed;
-  overflow-y: scroll; }
+  display: flex;
+  flex-direction: column; }
   .battle-list-container .battle-list-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
+    padding-bottom: 5px;
     font-weight: bold;
-    box-shadow: 2px 2px 5px #000; }
-  .battle-list-container .battle-list-item {
-    border: solid 10px #587184;
-    border-bottom: none;
-    margin-bottom: 5px;
-    display: flex;
-    flex-direction: column;
-    background-color: gray;
-    justify-content: center;
-    cursor: pointer;
-    position: relative; }
-    .battle-list-container .battle-list-item img {
-      align-self: center;
-      justify-self: center;
-      max-width: 100%; }
+    text-align: center;
+    background-color: #99895F;
+    color: #fff; }
+    .battle-list-container .battle-list-header .battle-list-header-title {
+      padding: 3px 0;
+      font-size: 1.1em; }
+    .battle-list-container .battle-list-header .battle-sort {
+      display: flex;
+      justify-content: space-around; }
+  .battle-list-container .battle-list-items {
+    flex: 1;
+    overflow-y: scroll; }
+    .battle-list-container .battle-list-items .battle-list-item {
+      border: solid 10px #587184;
+      border-bottom: none;
+      margin-bottom: 5px;
+      display: flex;
+      flex-direction: column;
+      background-color: gray;
+      justify-content: center;
+      cursor: pointer;
+      position: relative; }
+      .battle-list-container .battle-list-items .battle-list-item img {
+        align-self: center;
+        justify-self: center;
+        max-width: 100%; }
 
 /*# sourceMappingURL=BattleList.css.map */

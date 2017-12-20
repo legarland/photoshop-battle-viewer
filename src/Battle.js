@@ -75,6 +75,11 @@ class Battle extends Component {
 
 	resizeGridItem (item) {
 		let grid = document.getElementsByClassName("item-grid")[0];
+
+		if (!grid) {
+			return;
+		}
+
 		let rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
 		let rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
 		let rowSpan = Math.ceil((item.querySelector('.content').getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));

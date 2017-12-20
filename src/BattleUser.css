@@ -1,0 +1,23 @@
+.battle-user {
+  display: flex;
+  padding: 5px 10px;
+  cursor: pointer; }
+  .battle-user:hover {
+    background-color: lightgray; }
+  .battle-user .place {
+    width: 50px; }
+  .battle-user .stats {
+    width: 200px; }
+  .battle-user .username {
+    flex: 1; }
+  .battle-user:nth-child(2) {
+    font-size: 1.6em;
+    font-weight: bold; }
+  .battle-user:nth-child(3) {
+    font-size: 1.45em; }
+  .battle-user:nth-child(4) {
+    font-size: 1.3em; }
+  .battle-user.battle-user-active {
+    background-color: #587184; }
+
+/*# sourceMappingURL=BattleUser.css.map */
