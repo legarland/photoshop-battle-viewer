@@ -40,7 +40,7 @@ class BattleList extends Component {
 		let click = this.props.clicked;
 		let listItems = this.state.items.map(item => (
 			<Link to={"/" +item.data.id} className="battle-list-item">
-					<img src={item.data.url} alt=""/>
+					<img src={item.data.thumbnail} alt=""/>
 					<BattleSubmissionInfo id={item.data.id}/>
 			</Link>
 		));

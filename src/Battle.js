@@ -29,11 +29,18 @@ class Battle extends Component {
 
 
 		if (this.state.battleEntries && this.state.battleEntries.length) {
+
+			let url = this.state.battleItem.url;
+			console.log(url);
+			// if (url.indexOf('redditmedia') !== -1) {
+			// 	url = url.substr(0, url.indexOf('jpg?') + 3);
+			// }
+
 			return (
 				<div className="battle">
 					<div className="battle-item">
 						<div className="battle-title">{this.state.battleItem.title}</div>
-						<div className="battle-image"><img src={this.state.battleItem.url} alt=""/></div>
+						<div className="battle-image"><img src={url} alt=""/></div>
 					</div>
 					<h1>~ Winners ~</h1>
 					<div className="battle-winners">
