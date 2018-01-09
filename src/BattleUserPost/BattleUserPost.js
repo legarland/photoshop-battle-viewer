@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HoverImage from './HoverImage';
+import HoverImage from '../HoverImage/HoverImage';
 import './BattleUserPost.css';
 
 class BattleUserPost extends Component {

@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import ReactLoading from 'react-loading';
 import * as async from 'async';
 import './Home.css';
-import BattleUser from "./BattleUser";
-import BattleUserPosts from "./BattleUserPosts";
-import { posts2017, posts2016 } from "./2017";
+import BattleUser from "../BattleUser/BattleUser";
+import BattleUserPosts from "../BattleUserPosts/BattleUserPosts";
 
 class Home extends Component {
 
@@ -87,6 +86,12 @@ class Home extends Component {
 	}
 
 	loadPosts (lastPostId, count) {
+
+		// window.firebase.database().ref('battles').orderByChild('points').limitToLast(20).once('value', snaps => {
+		// 	snaps.forEach(snap => {
+		// 		console.log("top votes battle: ", snap.val());
+		// 	})
+		// })
 
 		window.firebase.database().ref('users').orderByChild('winCount').limitToLast(10).once('value', snap => {
 			snap.forEach(childSnap => {

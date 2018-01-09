@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import BattleUserPost from "./BattleUserPost";
+import BattleUserPost from "../BattleUserPost/BattleUserPost";
 import './BattleUserPosts.css';
 
 class BattleUserPosts extends Component {

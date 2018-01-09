@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as shortener from 'short-number';
-import upvote from './upvote.png';
-import psicon from './ps-icon.png';
+import upvote from '../Assets/upvote.png';
+import psicon from '../Assets/ps-icon.png';
 import './BattleSubmissionInfo.css'
 import 'whatwg-fetch';
 

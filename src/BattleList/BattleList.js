@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './BattleList.css';
 import 'whatwg-fetch';
-import BattleSubmissionInfo from "./BattleSubmissionInfo";
+import BattleSubmissionInfo from "../BattleSubmissionInfo/BattleSubmissionInfo";
 
 class BattleList extends Component {
 
@@ -13,7 +13,7 @@ class BattleList extends Component {
 			first: false,
 			sort: 'month',
 			sortType: 'hot'
-		}
+		};
 
 		this.sortChange = this.sortChange.bind(this);
 		this.sortTypeChange = this.sortTypeChange.bind(this);
@@ -37,18 +37,12 @@ class BattleList extends Component {
 
 	render() {
 
-		let click = this.props.clicked;
 		let listItems = this.state.items.map(item => (
 			<Link to={"/" +item.data.id} className="battle-list-item">
 					<img src={item.data.thumbnail} alt=""/>
 					<BattleSubmissionInfo id={item.data.id}/>
 			</Link>
 		));
-
-		// if (this.state.first) {
-		// 	this.setState({first: false});
-		// 	return <Redirect to={"/" + this.state.items[0].data.id}/>
-		// }
 
 		return (
 			<div className="battle-list-container">

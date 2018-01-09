@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import BattleSubmission from "./BattleSubmission";
+import BattleSubmission from "../BattleSubmission/BattleSubmission";
 import ReactLoading from 'react-loading';
 import './Battle.css';
 import 'whatwg-fetch';
-import gold from './gold.png';
-import silver from './silver.png';
-import bronze from './bronze.png';
+import gold from '../Assets/gold.png';
+import silver from '../Assets/silver.png';
+import bronze from '../Assets/bronze.png';
 import * as imagesLoaded from 'imagesloaded';
 
 class Battle extends Component {
