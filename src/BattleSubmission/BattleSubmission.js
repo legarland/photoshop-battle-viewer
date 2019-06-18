@@ -12,7 +12,7 @@ class BattleSubmission extends Component {
 			url: "",
 			status: "loading"
 		}
-	}
+	}
 
 	render () {
 
